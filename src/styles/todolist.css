@@ -1,0 +1,57 @@
+.todolist__page {
+    background-color: var(--third-bg-color);
+    padding: 15px;
+    width: 50%;
+    border-radius: 5px;
+}
+
+.todolist__header {
+    display: flex;
+    align-items: center;
+    color: var(--first-bg-color);
+    justify-content: space-between;
+}
+
+.todolist__ellipsis {
+    font-size: 30px;
+    color: var(--first-bg-color);
+}
+
+.todolist__page p {
+    color: var(--first-bg-color);
+}
+
+.todolist__category {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.todolist__category li {
+    margin-right: 10px;
+    font-size: 30px;
+}
+
+.todolist__color__category {
+    display: flex;
+}
+
+.todolist__icon__1 {
+    color: var(--fifth-bg-color);
+}
+
+.todolist__icon__2 {
+    color: var(--seventh-bg-color);
+}
+
+.todolist__icon__3 {
+    color: var(--eight-bg-color);
+}
+
+.todolist__task__status {
+    display: flex;
+}
+
+.todolist__task__status p {
+    margin-left: 5px;
+}

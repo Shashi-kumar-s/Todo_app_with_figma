@@ -1,0 +1,69 @@
+.home__page{
+    width: 90%;
+    margin: auto;
+    padding: 50px;
+    border: 2px solid var(--first-bg-color);
+    border-radius: 30px;
+    margin-top: 40px;
+    height: 90vh;
+}
+.todo__Header {
+    display:flex;
+    color: var(--first-bg-color);
+    justify-content: space-between;
+    align-items: center;
+
+}
+.todo__Header h2{
+    font-size: 30px;
+}
+.todo__add__icon{
+  font-size: 30px;
+}
+.todo__section{
+    display: flex;
+    margin-top: 40px;
+}
+.category__list{
+    margin-right: 40px;
+}
+.category__list li{
+    cursor: pointer;
+    color: var(--first-bg-color);
+    align-items: center;
+    display: flex   ;
+    margin-bottom: 20px;
+}
+
+.icon__size {
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+.work__category {
+    color: var(--eight-bg-color);
+}
+
+.study__category {
+    color: var(--fifth-bg-color);
+}
+
+.entertainment__category {
+    color: var(--seventh-bg-color);
+}
+
+.family__category {
+    color: var(--sixth-bg-color);
+}
+.check__task{
+    display: flex;
+    color: var(--first-bg-color);
+}
+.check__task p{
+    margin-left: 5px;
+}
+.todolist__section{
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+}
