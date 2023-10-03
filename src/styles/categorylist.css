@@ -1,0 +1,20 @@
+.icon__size {
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+.work__category {
+    color: var(--eight-bg-color);
+}
+
+.study__category {
+    color: var(--fifth-bg-color);
+}
+
+.entertainment__category {
+    color: var(--seventh-bg-color);
+}
+
+.family__category {
+    color: var(--sixth-bg-color);
+}
