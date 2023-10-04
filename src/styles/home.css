@@ -1,4 +1,4 @@
-.home__page{
+.home__page {
     width: 90%;
     margin: auto;
     padding: 50px;
@@ -7,63 +7,69 @@
     margin-top: 40px;
     height: 90vh;
 }
+
 .todo__Header {
-    display:flex;
+    display: flex;
     color: var(--first-bg-color);
     justify-content: space-between;
     align-items: center;
 
 }
-.todo__Header h2{
+
+.todo__Header h2 {
     font-size: 30px;
 }
-.todo__add__icon{
-  font-size: 30px;
+
+.todo__add__icon {
+    font-size: 30px;
+    cursor: pointer;
 }
-.todo__section{
+
+.todo__section {
     display: flex;
     margin-top: 40px;
 }
-.category__list{
+
+.category__list {
     margin-right: 40px;
 }
-.category__list li{
-    cursor: pointer;
-    color: var(--first-bg-color);
-    align-items: center;
-    display: flex   ;
-    margin-bottom: 20px;
+
+.category {
+    display: flex;
+    /* flex-direction: column; */
 }
 
-.icon__size {
-    font-size: 30px;
-    margin-right: 10px;
-}
-
-.work__category {
-    color: var(--eight-bg-color);
-}
-
-.study__category {
-    color: var(--fifth-bg-color);
-}
-
-.entertainment__category {
-    color: var(--seventh-bg-color);
-}
-
-.family__category {
-    color: var(--sixth-bg-color);
-}
-.check__task{
+.check__task {
     display: flex;
     color: var(--first-bg-color);
 }
-.check__task p{
+
+input[type=checkbox] {
+    cursor: pointer;
+}
+
+.check__task p {
     margin-left: 5px;
 }
-.todolist__section{
+
+.todolist__section {
     display: flex;
     flex-flow: row wrap;
     width: 100%;
+    /* overflow-y: scroll; */
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(180deg, #d0368a 0%, #708ad4 99%);
+    border-radius: 100px;
+    box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5), inset -2px -2px 2px rgba(0, 0, 0, .25);
+}
+
+::-webkit-scrollbar-track {
+    background: rgb(43, 42, 42);
+
 }

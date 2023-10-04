@@ -1,8 +1,10 @@
 .todolist__page {
     background-color: var(--third-bg-color);
     padding: 15px;
-    width: 50%;
+    width: 46%;
+    height: auto;
     border-radius: 5px;
+    margin: 10px 0px 10px 20px;
 }
 
 .todolist__header {
@@ -15,10 +17,33 @@
 .todolist__ellipsis {
     font-size: 30px;
     color: var(--first-bg-color);
+    cursor: pointer;
+    position: relative;
+    padding: 0 0 0 60px;
 }
 
-.todolist__page p {
+.todolist__button {
+    background-color: var(--fourth-bg-color);
+    display: flex;
+    flex-direction: column;
+    padding: 20px 40px 20px 8px;
+    border-radius: 10px;
+    position: absolute;
+
+}
+
+.todolist__btn {
+    border: none;
+    outline: none;
+    background-color: var(--fourth-bg-color);
     color: var(--first-bg-color);
+    text-align: start;
+    padding: 5px 0;
+    cursor: pointer;
+}
+
+.todolist__btn:hover {
+    background-color: #fff;
 }
 
 .todolist__category {

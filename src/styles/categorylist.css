@@ -1,0 +1,30 @@
+.icon__size {
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+.button_1 {
+    color: var(--eight-bg-color);
+}
+
+.button_2 {
+    color: var(--fifth-bg-color);
+}
+
+.button_3 {
+    color: var(--seventh-bg-color);
+}
+
+.button_4 {
+    color: var(--sixth-bg-color);
+}
+.category__button{
+    border: none;
+    margin-right: 20px;
+    font-size: 20px;
+    background-color: #fff;
+    cursor: pointer;
+    color: var(--first-bg-color);
+    display: flex;
+    align-items: center;
+}
