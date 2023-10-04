@@ -5,7 +5,7 @@ const TodoButton = (props) => {
   const { type, value, className, onclick,iconname,classname } = props
 
   return (
-    <button type={type} className={className} onClick={onclick}><FontAwesome iconName={iconname} className={classname}/>
+    <button type={type} className={className} onClick={onclick}value={value}><FontAwesome iconName={iconname} className={classname}/>
       {value}
     </button>
   )

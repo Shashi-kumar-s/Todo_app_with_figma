@@ -36,7 +36,10 @@
 
 .category {
     display: flex;
-    /* flex-direction: column; */
+    flex-direction: column;
+}
+.category button{
+    margin: 10px 0;
 }
 
 .check__task {

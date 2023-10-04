@@ -7,13 +7,47 @@ import propTypes from "prop-types"
 import { useState } from "react"
 
 const TodoList = (props) => {
-  const { title, description, id, handledelete, handleEdit } = props
+  const { title, description, id, handledelete, handleEdit, catdata } = props
 
   const [toggleModal, setToggleModal] = useState(false)
+  const [color, setColor] = useState("")
 
   const handleEllipsisModal = () => {
     setToggleModal(!toggleModal)
   }
+
+  catdata.length > 0 &&
+    catdata.map((ele) => {
+      setColor(ele)
+
+      // switch (ele) {
+      //   case "work":
+      //     setColor("button_1")
+      //     break
+      //   case "study":
+      //     setColor("button_2")
+      //     break
+      //   case "entertainment":
+      //     setColor("button_3")
+      //     break
+      //   case "family":
+      //     setColor("button_4")
+      //     break
+      //   default:
+      //     ele
+      //     break
+      // }
+
+      // if (ele === "work") {
+      //   setColor("button_1")
+      // } else if (ele === "study") {
+      //   setColor("button_2")
+      // } else if (ele === "entertainment") {
+      //   setColor("button_3")
+      // } else if (ele === "family") {
+      //   setColor("button_4")
+      // }
+    })
 
   return (
     <div className="todolist__page">
@@ -35,7 +69,7 @@ const TodoList = (props) => {
               <TodoButton
                 value={"Delete"}
                 className={"todolist__btn"}
-                onclick={() => handledelete(id,setToggleModal)}
+                onclick={() => handledelete(id, setToggleModal)}
               />
             </div>
           )}
@@ -46,16 +80,14 @@ const TodoList = (props) => {
       </div>
       <div className="todolist__category">
         <div className="todolist__color__category">
-          {/* <li>
-            <FontAwesome iconName={faCircle} className={"todolist__icon__1"} />
-          </li>
-          <li>
-            <FontAwesome iconName={faCircle} className={"todolist__icon__2"} />
-          </li>
-          <li>
-            <FontAwesome iconName={faCircle} className={"todolist__icon__3"} />
-          </li> */}
-          
+          <li>{color}</li>
+          {/* {color && (
+            <li>
+              <FontAwesome iconName={faCircle} 
+              className={color.toString()}
+               />
+            </li>
+          )} */}
         </div>
         <div className="todolist__task__status">
           <InputField type={"checkbox"} />
