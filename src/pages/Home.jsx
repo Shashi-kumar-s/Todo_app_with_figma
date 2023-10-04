@@ -18,7 +18,6 @@ const Home = () => {
   const [listOfTodos, setListOfTodos] = useState("")
   const [editId, setEditId] = useState("")
 
-  // <=========================All function=================>
   const openModal = () => setModal(true)
 
   useEffect(() => {
@@ -73,7 +72,6 @@ const Home = () => {
 
   
 
-  // console.log(inputData, "++++++++++++++++")
   return (
     <>
       <div className="home__page">

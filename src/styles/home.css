@@ -34,14 +34,10 @@
     margin-right: 40px;
 }
 
-.category__list li {
-    cursor: pointer;
-    color: var(--first-bg-color);
-    align-items: center;
+.category {
     display: flex;
-    margin-bottom: 20px;
+    /* flex-direction: column; */
 }
-
 
 .check__task {
     display: flex;
