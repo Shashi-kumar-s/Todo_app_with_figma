@@ -61,18 +61,6 @@
     display: flex;
 }
 
-.todolist__icon__1 {
-    color: var(--fifth-bg-color);
-}
-
-.todolist__icon__2 {
-    color: var(--seventh-bg-color);
-}
-
-.todolist__icon__3 {
-    color: var(--eight-bg-color);
-}
-
 .todolist__task__status {
     display: flex;
 }

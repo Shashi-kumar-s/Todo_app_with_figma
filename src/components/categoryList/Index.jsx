@@ -5,13 +5,18 @@ import Button from "../../staticdata/buttonstaticdata/ButtonData"
 import { useState } from "react"
 
 const CategoryList = (props) => {
-  const { className } = props
-  const [data, setData] = useState([])
-  const handleCategoryData = (e) => {
-    console.log(e.target, "+++++++++++++")
-    setData([...data, e.target.value])
-  }
-  console.log(data)
+  const { className,handlecategorydata} = props
+
+  // const [categoryData, setCategoryData] = useState([])
+  // const handleCategoryData = (e) => {
+  //   if (categoryData.includes(e.target.value)) {
+  //     setCategoryData(categoryData.filter((ele) => ele !== e.target.value))
+  //   } else {
+  //     setCategoryData([...categoryData, e.target.value])
+  //   }
+  // }
+  // console.log(categoryData,"++++++")
+
 
   return (
     <div className={className}>
@@ -22,7 +27,7 @@ const CategoryList = (props) => {
             iconname={ele.iconname}
             value={ele.value}
             className={"category__button"}
-            onclick={handleCategoryData}
+            onclick={handlecategorydata}
             classname={ele.classname}
           />
         )

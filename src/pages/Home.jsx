@@ -12,26 +12,45 @@ const Home = () => {
   const [inputData, setInputData] = useState({
     title: "",
     description: "",
-    tags: "",
+    tag: [],
   })
   const [allData, setAllData] = useState([])
   const [listOfTodos, setListOfTodos] = useState("")
   const [editId, setEditId] = useState("")
 
+
+  // ================================================>
+  const handleCategoryData = (e) => {
+    if (inputData.tag.includes(e.target.value)) {
+      const data = inputData.tag.filter((ele) => ele !== e.target.value)
+      inputData.tag = data
+    } else {
+      inputData.tag.push(e.target.value)
+    }
+  }
+
+  // ===========================================>
   const openModal = () => setModal(true)
 
+  // ========================================================>
   useEffect(() => {
     setListOfTodos(allData)
   }, [allData])
 
+  // ===================================>
   const handleChange = (e) => {
     setInputData({ ...inputData, [e.target.name]: e.target.value })
   }
 
+  // ======================================>
   const addTodo = (e) => {
     e.preventDefault()
-    setAllData([{ id: Date.now(), inputData }, ...allData])
-
+    if (inputData.title && inputData.description !== "") {
+      setAllData([{ id: Date.now(), inputData }, ...allData])
+      // handleCategoryData()
+      setInputData("")
+      setModal(false)
+    }
     if (editId) {
       const updateTodos = allData.map((elem) =>
         elem.id === editId
@@ -44,16 +63,16 @@ const Home = () => {
       setModal(false)
       return
     }
-    setInputData("")
-    setModal(false)
   }
 
+  // ===============================================>
   const handleDelete = (id, setToggleModal) => {
     const filterData = allData.filter((ele) => ele.id !== id)
     setAllData(filterData)
     setToggleModal(false)
   }
 
+  // ================================================>
   const handleEdit = (id, setToggleModal) => {
     allData.map((ele) => {
       if (ele.id === id) {
@@ -70,8 +89,6 @@ const Home = () => {
     })
   }
 
-  
-
   return (
     <>
       <div className="home__page">
@@ -85,7 +102,7 @@ const Home = () => {
         </div>
         <div className="todo__section">
           <div className="category__list">
-            <CategoryList className={"category"}/>
+            <CategoryList className={"category"} />
             <div className="check__task">
               <InputField type={"checkbox"} />
               <p>Hide Done Tasks</p>
@@ -102,6 +119,7 @@ const Home = () => {
                     id={ele.id}
                     handledelete={handleDelete}
                     handleEdit={handleEdit}
+                    catdata={ele.inputData.tag}
                   />
                 )
               })}
@@ -114,6 +132,7 @@ const Home = () => {
           onchange={handleChange}
           addtodo={addTodo}
           editId={editId}
+          handlecategorydata={handleCategoryData}
         />
       </div>
     </>

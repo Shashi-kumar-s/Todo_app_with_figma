@@ -6,7 +6,7 @@ import CategoryList from "../categoryList/Index"
 import TextArea from "../textarea"
 
 const Modal = (props) => {
-  const { modal, setModal, inputData, onchange, addtodo, editId } = props
+  const { modal, setModal, inputData, onchange, addtodo, editId,handlecategorydata } = props
 
   const modalClose = () => setModal(false)
 
@@ -53,7 +53,7 @@ const Modal = (props) => {
                 value={inputData.description}
               />
               <h3>Tags</h3>
-              <CategoryList className={"modal__list"} />
+              <CategoryList className={"modal__list"} handlecategorydata={handlecategorydata} />
             </div>
             {/* </form> */}
           </div>
