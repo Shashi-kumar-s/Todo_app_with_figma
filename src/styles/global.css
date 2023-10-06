@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
 
+
 *{
     padding: 0;
     margin: 0;
@@ -21,3 +22,22 @@ li{
     --seventh-bg-color:#ffcece;
     --eight-bg-color:#d2ceff;
 }
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(228, 225, 225);
+    border-radius: 100px;
+}
+
+::-webkit-scrollbar-track {
+    background:#fff;
+
+}
+.dark-theme{
+    background-color:#000;
+    color: #fff !important;
+}
+

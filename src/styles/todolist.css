@@ -64,7 +64,12 @@
 .todolist__task__status {
     display: flex;
 }
-
 .todolist__task__status p {
     margin-left: 5px;
+    color: var(--first-bg-color);
+
+}
+
+.todolist__description{
+    color: var(--first-bg-color);
 }

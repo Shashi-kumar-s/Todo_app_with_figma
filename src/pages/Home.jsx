@@ -6,8 +6,14 @@ import TodoList from "./TodoList"
 import Modal from "../components/modal"
 import { useEffect, useState } from "react"
 import CategoryList from "../components/categoryList/Index"
+import { ToastContainer, toast } from "react-toastify"
+import Switch from "@mui/material/Switch"
+import darkTheme from "../Theme/theme"
 
 const Home = () => {
+  const label = { inputProps: { "aria-label": "Switch demo" } }
+  const [darkMode, setDarkMode] = useState(false)
+
   const [modal, setModal] = useState(false)
   const [inputData, setInputData] = useState({
     title: "",
@@ -33,15 +39,22 @@ const Home = () => {
   }
 
   // ======================================>
-  const addTodo = async (e) => {
-    e.preventDefault()
-    if (inputData.title && inputData.description !== "") {
+  const addTodo = () => {
+    console.log(editId, "---------------")
+    if (
+      inputData.title.trim() &&
+      inputData.description.trim() &&
+      editId == ""
+    ) {
       setAllData([{ id: Date.now(), checked: false, inputData }, ...allData])
       setInputData("")
       setModal(false)
-      console.log("allllllltodo", allData)
-    }
-    if (editId) {
+      toast.success("Todo List Added!", {
+        position: "top-center",
+        theme: "colored",
+        autoClose: 1000,
+      })
+    } else {
       const updateTodos = allData.map((elem) =>
         elem.id === editId
           ? (elem = { id: elem.id, checked: elem.checked, inputData })
@@ -49,17 +62,22 @@ const Home = () => {
       )
       setAllData(updateTodos)
       setEditId(0)
-      setInputData("")
       setModal(false)
+      setInputData("")
+      toast.success("Todo List Edited!", {
+        position: "top-center",
+        theme: "colored",
+        autoClose: 600,
+      })
+
       return
     }
   }
 
   // ================================================>
   const handleCategoryData = (e) => {
-    console.log(e.target.color, e.target.value, "*********")
-    if (inputData.tag.includes(e.target.color)) {
-      const data = inputData.tag.filter((ele) => ele !== e.target.color)
+    if (inputData.tag.includes(e.target.value)) {
+      const data = inputData.tag.filter((ele) => ele !== e.target.value)
       setInputData((old) => {
         return {
           ...old,
@@ -68,7 +86,7 @@ const Home = () => {
       })
     } else {
       const newArray = [...inputData.tag]
-      newArray.push(e.target.color)
+      newArray.push(e.target.value)
       setInputData((old) => {
         return {
           ...old,
@@ -82,6 +100,11 @@ const Home = () => {
   const handleDelete = (id, setToggleModal) => {
     const filterData = allData.filter((ele) => ele.id !== id)
     setAllData(filterData)
+    toast.success("Todo List Deleted!", {
+      position: "top-center",
+      theme: "colored",
+      autoClose: 1000,
+    })
     setToggleModal(false)
   }
 
@@ -117,20 +140,52 @@ const Home = () => {
   }
 
   // =====================================>
-  
-  const hideDoneTask = () => {
-    
-    // const data = allData.filter((ele) => !ele.checked)
-    // setListOfTodos(data)
+
+  const hideDoneTask = (e) => {
+    const data = allData.filter((ele) => !ele.checked)
+    console.log("dattta", data)
+    setListOfTodos(data)
   }
+
+  const unhideDoneTask = (e) => {
+    setListOfTodos(allData)
+  }
+  const handlecheck = () => {
+    setCheck(!check)
+    if (check === false) {
+      console.log("+========", check)
+      hideDoneTask()
+    } else {
+      console.log("---------88", check)
+      unhideDoneTask()
+    }
+  }
+
   // ==========================================>
-  console.log(check, "ccccccccccc")
 
   return (
     <>
-      <div className="home__page">
+      <div
+        className="home__page"
+        style={
+          darkMode
+            ? {
+                background: darkTheme.primaryDark.backgroundColor,
+              }
+            : {
+                background: darkTheme.primaryLight.backgroundColor,
+              }
+        }
+      >
         <div className="todo__Header">
           <h2>todo</h2>
+          <ToastContainer />
+          <Switch
+            {...label}
+            defaultChecked
+            onChange={() => setDarkMode(!darkMode)}
+            checked={darkMode}
+          />
           <FontAwesome
             iconName={faPlus}
             className={"todo__add__icon"}
@@ -139,19 +194,19 @@ const Home = () => {
         </div>
         <div className="todo__section">
           <div className="category__list">
-            <CategoryList className={"category"} />
+            <CategoryList className={"category"} darkmode={darkMode} />
             <div className="check__task">
               <InputField
                 type={"checkbox"}
                 checked={check ? true : false}
-                onchange={hideDoneTask}
+                onchange={handlecheck}
               />
               <p>Hide Done Tasks</p>
             </div>
           </div>
           {listOfTodos.length > 0 && (
             <div className="todolist__section">
-              {listOfTodos.map((ele, i) => {
+              {listOfTodos.map((ele) => {
                 return (
                   <TodoList
                     key={ele.id}
@@ -177,6 +232,7 @@ const Home = () => {
           addtodo={addTodo}
           editId={editId}
           handlecategorydata={handleCategoryData}
+          darkmode={darkMode}
         />
       </div>
     </>

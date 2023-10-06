@@ -6,7 +6,7 @@ import CategoryList from "../categoryList/Index"
 import TextArea from "../textarea"
 
 const Modal = (props) => {
-  const { modal, setModal, inputData, onchange, addtodo, editId,handlecategorydata } = props
+  const { modal, setModal, inputData, onchange, addtodo, editId,handlecategorydata,darkmode } = props
 
   const modalClose = () => setModal(false)
 
@@ -15,17 +15,17 @@ const Modal = (props) => {
       {modal && (
         <>
           <div className="modal__overlay" onClick={modalClose}></div>
-          <div className="modal">
+          <div  className="modal">
             <div className="modal__button">
               <TodoButton
                 value={"Cancel"}
-                className={"modal__cancelbutton"}
+                buttonStyle={"modal__cancelbutton"}
                 onclick={modalClose}
               />
               <TodoButton
                 type={"submit"}
                 value={editId ? "Edit" : "Add"}
-                className={"modal__addbutton"}
+                buttonStyle={"modal__addbutton"}
                 onclick={addtodo}
               />
             </div>
