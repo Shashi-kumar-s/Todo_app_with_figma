@@ -17,17 +17,7 @@ const Home = () => {
   const [allData, setAllData] = useState([])
   const [listOfTodos, setListOfTodos] = useState("")
   const [editId, setEditId] = useState("")
-
-
-  // ================================================>
-  const handleCategoryData = (e) => {
-    if (inputData.tag.includes(e.target.value)) {
-      const data = inputData.tag.filter((ele) => ele !== e.target.value)
-      inputData.tag = data
-    } else {
-      inputData.tag.push(e.target.value)
-    }
-  }
+  const [check, setCheck] = useState(false)
 
   // ===========================================>
   const openModal = () => setModal(true)
@@ -43,25 +33,48 @@ const Home = () => {
   }
 
   // ======================================>
-  const addTodo = (e) => {
+  const addTodo = async (e) => {
     e.preventDefault()
     if (inputData.title && inputData.description !== "") {
-      setAllData([{ id: Date.now(), inputData }, ...allData])
-      // handleCategoryData()
+      setAllData([{ id: Date.now(), checked: false, inputData }, ...allData])
       setInputData("")
       setModal(false)
+      console.log("allllllltodo", allData)
     }
     if (editId) {
       const updateTodos = allData.map((elem) =>
         elem.id === editId
-          ? (elem = { id: elem.id, inputData })
-          : { id: elem.id, inputData: elem.inputData }
+          ? (elem = { id: elem.id, checked: elem.checked, inputData })
+          : { id: elem.id, checked: elem.checked, inputData: elem.inputData }
       )
       setAllData(updateTodos)
       setEditId(0)
       setInputData("")
       setModal(false)
       return
+    }
+  }
+
+  // ================================================>
+  const handleCategoryData = (e) => {
+    console.log(e.target.color, e.target.value, "*********")
+    if (inputData.tag.includes(e.target.color)) {
+      const data = inputData.tag.filter((ele) => ele !== e.target.color)
+      setInputData((old) => {
+        return {
+          ...old,
+          tag: data,
+        }
+      })
+    } else {
+      const newArray = [...inputData.tag]
+      newArray.push(e.target.color)
+      setInputData((old) => {
+        return {
+          ...old,
+          tag: newArray,
+        }
+      })
     }
   }
 
@@ -89,6 +102,30 @@ const Home = () => {
     })
   }
 
+  // ===========================================>
+  const handleCheckBox = (id) => {
+    const checkData = allData.map((ele) =>
+      ele.id === id
+        ? (ele = {
+            id: ele.id,
+            checked: (ele.checked = !ele.checked),
+            inputData: ele.inputData,
+          })
+        : { id: ele.id, checked: ele.checked, inputData: ele.inputData }
+    )
+    setAllData(checkData)
+  }
+
+  // =====================================>
+  
+  const hideDoneTask = () => {
+    
+    // const data = allData.filter((ele) => !ele.checked)
+    // setListOfTodos(data)
+  }
+  // ==========================================>
+  console.log(check, "ccccccccccc")
+
   return (
     <>
       <div className="home__page">
@@ -104,26 +141,33 @@ const Home = () => {
           <div className="category__list">
             <CategoryList className={"category"} />
             <div className="check__task">
-              <InputField type={"checkbox"} />
+              <InputField
+                type={"checkbox"}
+                checked={check ? true : false}
+                onchange={hideDoneTask}
+              />
               <p>Hide Done Tasks</p>
             </div>
           </div>
-          <div className="todolist__section">
-            {listOfTodos.length > 0 &&
-              listOfTodos.map((ele, i) => {
+          {listOfTodos.length > 0 && (
+            <div className="todolist__section">
+              {listOfTodos.map((ele, i) => {
                 return (
                   <TodoList
-                    key={i}
+                    key={ele.id}
                     title={ele.inputData.title}
                     description={ele.inputData.description}
                     id={ele.id}
                     handledelete={handleDelete}
                     handleEdit={handleEdit}
+                    checked={ele.checked}
+                    handleCheckBox={handleCheckBox}
                     catdata={ele.inputData.tag}
                   />
                 )
               })}
-          </div>
+            </div>
+          )}
         </div>
         <Modal
           modal={modal}

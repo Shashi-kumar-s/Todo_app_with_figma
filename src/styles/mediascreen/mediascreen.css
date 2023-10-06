@@ -21,13 +21,14 @@
     }
 
     .category {
-        display: flex;
-    }
-
-    .category {
+        display: flex !important;
+        flex-direction: row !important;
+        font-size: 12px;
         margin-right: 10px;
         justify-content: space-between;
     }
+
+    
 
     .check__task {
         display: none !important;
@@ -68,9 +69,11 @@
     }
 
     .category {
-        display: flex;
+        display: flex !important;
+        flex-direction: row !important;
         font-size: 12px;
     }
+    .category button{font-size: 15px;margin-right: 8px !important;}
 
     .category li {
         margin: 0px 8px;

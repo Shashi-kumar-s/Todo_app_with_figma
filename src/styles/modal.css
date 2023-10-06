@@ -41,7 +41,9 @@
     border-radius: 10px;
     cursor: pointer;
 }
-
+.modal__addbutton:hover{
+    background-color: #141414;
+}
 label {
     font-weight: 500;
     font-size: 22px;

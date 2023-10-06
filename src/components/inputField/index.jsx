@@ -9,7 +9,8 @@ const InputField = (props) => {
     onchange,
     autofocus,
     autocomplete,
-    value
+    value,
+    checked
   } = props
 
   return (
@@ -22,6 +23,7 @@ const InputField = (props) => {
       autoComplete={autocomplete}
       className={className}
       onChange={onchange}
+      checked={checked}
     />
   )
 }
