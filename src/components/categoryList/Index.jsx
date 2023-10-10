@@ -1,7 +1,7 @@
 import "../../styles/categorylist.css"
 import propTypes from "prop-types"
 import TodoButton from "../button"
-import Button from "../../staticdata/buttonstaticdata/ButtonData"
+import ButtonData from "../../staticdata/buttonstaticdata/ButtonData"
 
 const CategoryList = (props) => {
   const { className,handlecategorydata,darkmode} = props
@@ -9,7 +9,7 @@ const CategoryList = (props) => {
 
   return (
     <div className={className}>
-      {Button.map((ele) => {
+      {ButtonData.map((ele) => {
         return (
           <TodoButton
             key={ele.id}

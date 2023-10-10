@@ -1,6 +1,7 @@
-body{
+body {
     background-color: #fff;
 }
+
 .home__page {
     width: 90%;
     margin: auto;
@@ -9,6 +10,7 @@ body{
     border-radius: 30px;
     margin-top: 40px;
     height: 90vh;
+    background-color: var(--fourth-bg-color);
 }
 
 .todo__Header {
@@ -20,11 +22,34 @@ body{
 
 .todo__Header h2 {
     font-size: 30px;
-        }
+    color: var(--first-bg-color);
+}
+
+.dark__addIcon {
+    display: flex;
+    align-items: center;
+}
+
+.dark {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--first-bg-color);
+    border-radius: 10px;
+    padding: 4px 6px;
+    margin-left: 25px;
+}
+
+.dark__icon {
+    color: var(--first-bg-color);
+    font-size: 20px;
+}
+
+
 
 .todo__add__icon {
     font-size: 30px;
     cursor: pointer;
+    color: var(--first-bg-color);
 }
 
 .todo__section {
@@ -34,9 +59,9 @@ body{
 
 .category__list {
     margin-right: 40px;
-    border: 1px solid #000;
     border-radius: 10px;
     padding: 30px 10px;
+    background-color: var(--ninth-bg-color);
 }
 
 .category {
@@ -59,13 +84,19 @@ input[type=checkbox] {
 
 .check__task p {
     margin-left: 5px;
+    color: var(--tenth-bg-color);
+    cursor: pointer;
+}
+
+.check__task p:hover {
+    color: var(--first-bg-color);
 }
 
 .todolist__section {
     display: flex;
     flex-flow: row wrap;
     width: 100%;
-    overflow-y: scroll;
+    overflow-y: auto;
     max-height: 60vh;
 }
 
