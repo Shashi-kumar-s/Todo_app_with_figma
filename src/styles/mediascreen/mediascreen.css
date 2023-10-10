@@ -24,11 +24,13 @@
         display: flex !important;
         flex-direction: row !important;
         font-size: 12px;
-        margin-right: 10px;
-        justify-content: space-between;
+        justify-content: space-around;
     }
 
-
+.category__list{
+    margin: 0px 10px !important;
+    padding: 30px 0px !important;
+}
 
     .check__task {
         display: none !important;
@@ -46,6 +48,7 @@
         width: 100% !important;
         margin: 10px 10px !important;
     }
+    .modal__label{margin: 0px 4px;}
 }
 
 
@@ -66,6 +69,7 @@
 
     .category__list {
         margin: 10px !important;
+        padding: 10px !important;
     }
 
     .category {
@@ -144,9 +148,6 @@
         display: block !important;
     }
 
-    .modal__check__category {
-        display: flex;
-    }
 
     .modal h3 {
         margin-top: 50px !important;

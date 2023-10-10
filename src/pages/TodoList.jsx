@@ -66,7 +66,7 @@ const TodoList = (props) => {
       </div>
       <div className="todolist__category">
         <div className="todolist__color__category ">
-          {catdata.map((ele,i) => {
+          {catdata?.map((ele,i) => {
             return <p className="category__select" key={i}>{ele}</p>
           })}
         </div>

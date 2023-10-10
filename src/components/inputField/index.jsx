@@ -12,6 +12,7 @@ const InputField = (props) => {
     autocomplete,
     value,
     checked,
+    maxlength
   } = props
   return (
     <input
@@ -25,6 +26,7 @@ const InputField = (props) => {
       onChange={onchange}
       checked={checked}
       id={id}
+      maxLength={maxlength}
     />
   )
 }

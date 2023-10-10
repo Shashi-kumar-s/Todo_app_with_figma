@@ -3,6 +3,7 @@ import InputField from "../inputField"
 import propTypes from "prop-types"
 import "../../styles/modal.css"
 import TextArea from "../textarea"
+import { categoryData } from "../../staticdata/modalCategoryData"
 
 const Modal = (props) => {
   const {
@@ -16,7 +17,6 @@ const Modal = (props) => {
     catedata,
   } = props
 
-  console.log(catedata, "+++8888888888")
   return (
     <>
       {modal && (
@@ -48,6 +48,7 @@ const Modal = (props) => {
                 onchange={onchange}
                 autofocus={true}
                 autocomplete={"false"}
+                maxlength={"30"}
               />
               <label htmlFor="description">Description</label>
               <TextArea
@@ -61,82 +62,28 @@ const Modal = (props) => {
               />
               <h3>Tags</h3>
               <div className="modal__list__category">
-                <div className="modal__check__category">
-                  <InputField
-                    type={"checkbox"}
-                    value={"Work"}
-                    checked={catedata.filter((ele) => {
-                      if (ele === "Work") {
-                        console.log("hhhhhhheeeeeeeeellllllloooo");
-                        ("true")
-                      } else {
-                        ("false")
-                      }
-                    })}
-                    id={"work"}
-                    className={"modal__list"}
-                  />
-                  <label
-                    htmlFor="work"
-                    className="modal__label"
-                    onClick={handlecategorydata}
-                  >
-                    Work
-                  </label>
-                </div>
-                <div className="modal__check__category">
-                  <InputField
-                    type={"checkbox"}
-                     checked={catedata.filter((ele) => {
-                      if (ele === "Study") {
-                        console.log("hhhhhhheeeeeeeeellllllloooo");
-                        ("true")
-                      } else {
-                        ("false")
-                      }
-                    })}
-                    value={"Study"}
-                    id={"Study"}
-                    className={"modal__list"}
-                  />
-                  <label
-                    htmlFor="Study"
-                    className="modal__label"
-                    onClick={handlecategorydata}
-                  >
-                    Study
-                  </label>
-                </div>
-                <div className="modal__check__category">
-                  <InputField
-                    type={"checkbox"}
-                    value={"Entertainment"}
-                    className={"modal__list"}
-                    id={"Entertainment"}
-                  />
-                  <label
-                    htmlFor="Entertainment"
-                    className="modal__label"
-                    onClick={handlecategorydata}
-                  >
-                    Entertainment
-                  </label>
-                </div>
-                <div className="modal__check__category">
-                  <InputField
-                    type={"checkbox"}
-                    value={"Family"}
-                    id={"Family"}
-                    className={"modal__list"}
-                  />
-                  <label
-                    htmlFor="Family"
-                    className="modal__label"
-                    onClick={handlecategorydata}
-                  >
-                    Family
-                  </label>
-                </div>
+                  {categoryData.map((ele) => {
+                    return (
+                      <div key={ele.id} className="modal__check__category">
+                        <InputField
+                          type={ele.type}
+                          value={ele.value}
+                          id={ele.id}
+                          checked={
+                            catedata?.includes(ele.value)
+                          }
+                          className={"modal__list"}
+                        />
+                        <label
+                          htmlFor={ele.value}
+                          className="modal__label"
+                          onClick={handlecategorydata}
+                        >
+                          {ele.value}
+                        </label>
+                      </div>
+                    )
+                  })}
               </div>
             </div>
             {/* </form> */}

@@ -94,9 +94,10 @@ input[type="text"]::placeholder {
     font-size: 13px;
 }
 
-/* .modal__category__List {
+.modal__check__category {
     display: flex;
-} */
+    align-items: center;
+}
 
 .modal__list__category {
     display: flex;
@@ -105,7 +106,7 @@ input[type="text"]::placeholder {
 }
 
 .modal__list {
-    margin:5px;
+    margin: 5px;
 }
 
 .modal h3 {
@@ -140,6 +141,7 @@ input[type="text"]::placeholder {
     cursor: pointer;
     color: var(--tenth-bg-color);
 }
-.modal__label:hover{
+
+.modal__label:hover {
     color: var(--first-bg-color);
 }
