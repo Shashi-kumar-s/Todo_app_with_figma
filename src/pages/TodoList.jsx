@@ -18,8 +18,6 @@ const TodoList = (props) => {
     catdata,
   } = props
 
-
-
   const [toggleModal, setToggleModal] = useState(false)
   const [color, setColor] = useState("")
 
@@ -28,8 +26,6 @@ const TodoList = (props) => {
   }
 
   
- 
-
   return (
     <div className="todolist__page">
       <div className="todolist__header">
@@ -50,12 +46,12 @@ const TodoList = (props) => {
             <div className="todolist__button">
               <TodoButton
                 value={"Edit"}
-                className={"todolist__btn"}
+                buttonStyle={"todolist__btn"}
                 onclick={() => handleEdit(id, setToggleModal)}
               />
               <TodoButton
                 value={"Delete"}
-                className={"todolist__btn"}
+                buttonStyle={"todolist__btn"}
                 onclick={() => handledelete(id, setToggleModal)}
               />
             </div>
@@ -73,16 +69,12 @@ const TodoList = (props) => {
       </div>
       <div className="todolist__category">
         <div className="todolist__color__category">
-          {color && (
-            <li>
-              <FontAwesome iconName={faCircle} className={color.toString()} />
-            </li>
-          )}
+          {color && <li>{color}</li>}
         </div>
         <div className="todolist__task__status">
           <InputField
             type={"checkbox"}
-            checked={checked?true:false}
+            checked={checked ? true : false}
             onchange={() => handleCheckBox(id)}
           />
           <p>Done</p>

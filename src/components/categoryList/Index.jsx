@@ -4,7 +4,7 @@ import TodoButton from "../button"
 import Button from "../../staticdata/buttonstaticdata/ButtonData"
 
 const CategoryList = (props) => {
-  const { className,handlecategorydata} = props
+  const { className,handlecategorydata,darkmode} = props
 
 
   return (
@@ -15,10 +15,11 @@ const CategoryList = (props) => {
             key={ele.id}
             iconname={ele.iconname}
             value={ele.value}
-            className={"category__button"}
+            buttonStyle={"category__button"}
             onclick={handlecategorydata}
             classname={ele.classname}
             color={ele.color}
+            darkmode={darkmode}
           />
         )
       })}

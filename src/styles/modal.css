@@ -8,7 +8,7 @@
     opacity: 0.5;
 }
 
-.modal {
+.modal{
     position: fixed;
     left: 50%;
     top: 50%;
@@ -16,6 +16,18 @@
     width: 55%;
     height: 80vh;
     background-color: var(--fourth-bg-color);
+    padding: 50px;
+    border-radius: 30px;
+    color: var(--first-bg-color);
+}
+.modalDark {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 55%;
+    height: 80vh;
+    background-color: var(--first-bg-color);
     padding: 50px;
     border-radius: 30px;
     color: var(--first-bg-color);
