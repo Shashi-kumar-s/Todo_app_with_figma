@@ -2,20 +2,27 @@ import TodoButton from "../button"
 import InputField from "../inputField"
 import propTypes from "prop-types"
 import "../../styles/modal.css"
-import CategoryList from "../categoryList/Index"
 import TextArea from "../textarea"
 
 const Modal = (props) => {
-  const { modal, setModal, inputData, onchange, addtodo, editId,handlecategorydata,darkmode } = props
+  const {
+    modal,
+    modalClose,
+    inputData,
+    onchange,
+    addtodo,
+    editId,
+    handlecategorydata,
+    catedata,
+  } = props
 
-  const modalClose = () => setModal(false)
-
+  console.log(catedata, "+++8888888888")
   return (
     <>
       {modal && (
         <>
           <div className="modal__overlay" onClick={modalClose}></div>
-          <div  className="modal">
+          <div className="modal">
             <div className="modal__button">
               <TodoButton
                 value={"Cancel"}
@@ -53,7 +60,84 @@ const Modal = (props) => {
                 value={inputData.description}
               />
               <h3>Tags</h3>
-              <CategoryList className={"modal__list"} handlecategorydata={handlecategorydata} />
+              <div className="modal__list__category">
+                <div className="modal__check__category">
+                  <InputField
+                    type={"checkbox"}
+                    value={"Work"}
+                    checked={catedata.filter((ele) => {
+                      if (ele === "Work") {
+                        console.log("hhhhhhheeeeeeeeellllllloooo");
+                        ("true")
+                      } else {
+                        ("false")
+                      }
+                    })}
+                    id={"work"}
+                    className={"modal__list"}
+                  />
+                  <label
+                    htmlFor="work"
+                    className="modal__label"
+                    onClick={handlecategorydata}
+                  >
+                    Work
+                  </label>
+                </div>
+                <div className="modal__check__category">
+                  <InputField
+                    type={"checkbox"}
+                     checked={catedata.filter((ele) => {
+                      if (ele === "Study") {
+                        console.log("hhhhhhheeeeeeeeellllllloooo");
+                        ("true")
+                      } else {
+                        ("false")
+                      }
+                    })}
+                    value={"Study"}
+                    id={"Study"}
+                    className={"modal__list"}
+                  />
+                  <label
+                    htmlFor="Study"
+                    className="modal__label"
+                    onClick={handlecategorydata}
+                  >
+                    Study
+                  </label>
+                </div>
+                <div className="modal__check__category">
+                  <InputField
+                    type={"checkbox"}
+                    value={"Entertainment"}
+                    className={"modal__list"}
+                    id={"Entertainment"}
+                  />
+                  <label
+                    htmlFor="Entertainment"
+                    className="modal__label"
+                    onClick={handlecategorydata}
+                  >
+                    Entertainment
+                  </label>
+                </div>
+                <div className="modal__check__category">
+                  <InputField
+                    type={"checkbox"}
+                    value={"Family"}
+                    id={"Family"}
+                    className={"modal__list"}
+                  />
+                  <label
+                    htmlFor="Family"
+                    className="modal__label"
+                    onClick={handlecategorydata}
+                  >
+                    Family
+                  </label>
+                </div>
+              </div>
             </div>
             {/* </form> */}
           </div>

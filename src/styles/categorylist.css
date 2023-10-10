@@ -26,4 +26,8 @@
     cursor: pointer;
     display: flex;
     align-items: center;
+    color: var(--tenth-bg-color);
+}
+.category__button:hover{
+    color: var( --first-bg-color);
 }

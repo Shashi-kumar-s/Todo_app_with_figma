@@ -1,17 +1,24 @@
 .todolist__page {
-    background-color: var(--third-bg-color);
+    background-color: var(--ninth-bg-color);
     padding: 15px;
     width: 46%;
-    height: auto;
+    height: 170px;
     border-radius: 5px;
     margin: 10px 0px 10px 20px;
+    position: relative;
+
 }
 
 .todolist__header {
     display: flex;
     align-items: center;
-    color: var(--first-bg-color);
     justify-content: space-between;
+}
+
+.todolist__header h3 {
+    color: var(--first-bg-color);
+    font-weight: 500 !important;
+    text-transform: capitalize;
 }
 
 .todolist__ellipsis {
@@ -26,7 +33,7 @@
     background-color: var(--fourth-bg-color);
     display: flex;
     flex-direction: column;
-    padding: 20px 40px 20px 8px;
+    padding: 8px 40px 8px 8px;
     border-radius: 10px;
     position: absolute;
 
@@ -38,18 +45,31 @@
     background-color: var(--fourth-bg-color);
     color: var(--first-bg-color);
     text-align: start;
-    padding: 5px 0;
+    padding: 2px 0;
     cursor: pointer;
 }
 
 .todolist__btn:hover {
-    background-color: #fff;
+    background-color: var(--fourth-bg-color);
 }
 
 .todolist__category {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    color: var(--tenth-bg-color);
+}
+
+.category__select {
+    padding: 0 4px;
+    font-weight: 300 !important;
+    background-color: var(--eleventh-bg-color);
+    margin:0 2px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.category__select:hover {
+    color: var(--first-bg-color);
 }
 
 .todolist__category li {
@@ -59,17 +79,32 @@
 
 .todolist__color__category {
     display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 0 0 3px 9px;
 }
 
 .todolist__task__status {
     display: flex;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0px 8px 3px 0px;
+
 }
+
 .todolist__task__status p {
     margin-left: 5px;
+}
+
+.todolist__task__status p:hover {
     color: var(--first-bg-color);
 
 }
 
-.todolist__description{
-    color: var(--first-bg-color);
+.todolist__description {
+    color: var(--tenth-bg-color);
+    overflow-y: auto;
+    max-height:70px;
 }

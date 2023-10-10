@@ -2,6 +2,7 @@ import propTypes from "prop-types"
 
 const InputField = (props) => {
   const {
+    id,
     type,
     placeholder,
     className,
@@ -10,9 +11,8 @@ const InputField = (props) => {
     autofocus,
     autocomplete,
     value,
-    checked
+    checked,
   } = props
-
   return (
     <input
       type={type}
@@ -24,6 +24,7 @@ const InputField = (props) => {
       className={className}
       onChange={onchange}
       checked={checked}
+      id={id}
     />
   )
 }

@@ -8,7 +8,7 @@
     opacity: 0.5;
 }
 
-.modal{
+.modal {
     position: fixed;
     left: 50%;
     top: 50%;
@@ -20,6 +20,7 @@
     border-radius: 30px;
     color: var(--first-bg-color);
 }
+
 .modalDark {
     position: fixed;
     left: 50%;
@@ -40,22 +41,30 @@
 
 .modal__cancelbutton {
     border: none;
-    background-color: #fff;
+    color: var(--fourth-bg-color);
     cursor: pointer;
-    font-size: 17px;
+    font-size: 15px;
+    background-color: var(--twelfth-bg-color);
+    border-radius: 10px;
+    padding: 5px 10px;
 }
 
 .modal__addbutton {
-    background-color: var(--first-bg-color);
-    color: #fff;
+    background-color: var(--twelfth-bg-color);
+    color: var(--fourth-bg-color);
     border: none;
     padding: 10px 50px;
     border-radius: 10px;
     cursor: pointer;
+    font-weight: 600;
 }
-.modal__addbutton:hover{
-    background-color: #141414;
+
+.modal__addbutton:hover,
+.modal__cancelbutton:hover {
+    background-color: var(--thirteen-bg-color);
+    color: var(--fourteen-bg-color);
 }
+
 label {
     font-weight: 500;
     font-size: 22px;
@@ -68,23 +77,39 @@ label {
 }
 
 .modal__input {
-    border: none;
     padding: 3px 8px;
     font-size: 17px;
+    border-radius: 6px !important;
 }
 
-.modal__category__List {
+input[type="text"] {
+    background-color: var(--ninth-bg-color);
+    border: 1px solid grey;
+    outline: none;
+    color: var(--first-bg-color);
+}
+
+input[type="text"]::placeholder {
+    color: var(--first-bg-color);
+    font-size: 13px;
+}
+
+/* .modal__category__List {
     display: flex;
+} */
+
+.modal__list__category {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .modal__list {
-    display: flex;
-    align-items: center;
+    margin:5px;
 }
 
 .modal h3 {
-    margin-top: 85px;
-    padding: 20px 0;
+    margin-top: 100px;
 }
 
 .modal__list li {
@@ -93,5 +118,28 @@ label {
     align-items: center;
     cursor: pointer;
 }
-.description__TextArea{padding: 8px;
-resize:none;border: none;}
+
+.description__TextArea {
+    padding: 8px;
+    resize: none;
+    border: 1px solid grey;
+    border-radius: 8px !important;
+    background-color: var(--ninth-bg-color);
+    outline: none;
+    color: var(--first-bg-color);
+}
+
+.description__TextArea::placeholder {
+    color: var(--first-bg-color);
+}
+
+.modal__label {
+    font-size: 17px;
+    font-weight: 400;
+    margin-right: 20px;
+    cursor: pointer;
+    color: var(--tenth-bg-color);
+}
+.modal__label:hover{
+    color: var(--first-bg-color);
+}

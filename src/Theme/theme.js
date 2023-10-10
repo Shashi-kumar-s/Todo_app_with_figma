@@ -6,10 +6,11 @@ const darkTheme ={
     primaryLight: {
       borderColor: "#ddede1",
       backgroundColor: "#f0f2f0",
+      textcolor:'#000'
     },
     primaryDark: {
       backgroundColor: "#787775",
-      borderColor: "#edf2ed",
+      textcolor:'#fff'
     },
   }
 

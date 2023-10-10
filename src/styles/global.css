@@ -1,26 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
 
 
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family:'Poppins',sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
-li{
+li {
     list-style: none;
 }
 
-:root{
-    --first-bg-color:#69665c;
-    --second-bg-color:#b2afa1;
-    --third-bg-color:#fff9de;
-    --fourth-bg-color:#ffffff;
-    --fifth-bg-color:#d1e5f7;
-    --sixth-bg-color:#daf2d6;
-    --seventh-bg-color:#ffcece;
-    --eight-bg-color:#d2ceff;
+:root {
+    --first-bg-color: #69665c;
+    --second-bg-color: #b2afa1;
+    --third-bg-color: #fff9de;
+    --fourth-bg-color: #f1eded;
+    --fifth-bg-color: #d1e5f7;
+    --sixth-bg-color: #daf2d6;
+    --seventh-bg-color: #ffcece;
+    --eight-bg-color: #d2ceff;
+    --ninth-bg-color: #f1f1f1;
+    --tenth-bg-color: #1C2025;
+    --eleventh-bg-color:#d1e5f7;
+    --twelfth-bg-color: #69665c;
+    --thirteen-bg-color: #3a3936;
+    --fourteen-bg-color: #ffffff;
+
+}
+
+[data-theme="dark"] {
+    --first-bg-color: #ffffff;
+    --fourth-bg-color: #303740;
+    --ninth-bg-color: #a3a3a833;
+    --tenth-bg-color: #B0B8C4;
+    --twelfth-bg-color: #42a5f5;
+    --thirteen-bg-color: #417cad;
+    --fourteen-bg-color: #ffffff;
+    --eleventh-bg-color:#1C2025;
+
+
+
 }
 
 ::-webkit-scrollbar {
@@ -33,11 +54,11 @@ li{
 }
 
 ::-webkit-scrollbar-track {
-    background:#fff;
+    background:var(--ninth-bg-color);
 
 }
-.dark-theme{
-    background-color:#000;
+
+.dark-theme {
+    background-color: #000;
     color: #fff !important;
 }
-
