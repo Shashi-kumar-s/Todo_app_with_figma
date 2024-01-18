@@ -17,15 +17,12 @@ const TodoList = (props) => {
     handleCheckBox,
     catdata,
   } = props
-
   const [toggleModal, setToggleModal] = useState(false)
-  const [color, setColor] = useState("")
 
   const handleEllipsisModal = () => {
     setToggleModal(!toggleModal)
   }
 
-  
   return (
     <div className="todolist__page">
       <div className="todolist__header">
@@ -68,8 +65,10 @@ const TodoList = (props) => {
         )}
       </div>
       <div className="todolist__category">
-        <div className="todolist__color__category">
-          {color && <li>{color}</li>}
+        <div className="todolist__color__category ">
+          {catdata?.map((ele,i) => {
+            return <p className="category__select" key={i}>{ele}</p>
+          })}
         </div>
         <div className="todolist__task__status">
           <InputField

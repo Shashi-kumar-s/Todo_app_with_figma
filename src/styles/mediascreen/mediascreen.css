@@ -24,11 +24,13 @@
         display: flex !important;
         flex-direction: row !important;
         font-size: 12px;
-        margin-right: 10px;
-        justify-content: space-between;
+        justify-content: space-around;
     }
 
-    
+.category__list{
+    margin: 0px 10px !important;
+    padding: 30px 0px !important;
+}
 
     .check__task {
         display: none !important;
@@ -46,6 +48,7 @@
         width: 100% !important;
         margin: 10px 10px !important;
     }
+    .modal__label{margin: 0px 4px;}
 }
 
 
@@ -65,15 +68,21 @@
     }
 
     .category__list {
-        margin: 0px;
+        margin: 10px !important;
+        padding: 10px !important;
     }
 
     .category {
         display: flex !important;
-        flex-direction: row !important;
+        flex-flow: row wrap;
         font-size: 12px;
+
     }
-    .category button{font-size: 15px;margin-right: 8px !important;}
+
+    .category button {
+        font-size: 15px;
+        margin: 8px !important;
+    }
 
     .category li {
         margin: 0px 8px;
@@ -119,6 +128,12 @@
 
     .modal__list {
         display: block !important;
+        padding: 0px;
+        margin: 0px 8px !important;
+    }
+
+    .modal__label {
+        margin: 8px;
     }
 
     .modal__list.icon__size {
@@ -128,6 +143,11 @@
     .modal__list li {
         padding: 5px !important;
     }
+
+    .modal__list__category {
+        display: block !important;
+    }
+
 
     .modal h3 {
         margin-top: 50px !important;

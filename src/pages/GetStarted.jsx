@@ -22,7 +22,7 @@ const GetStarted = () => {
         <Link to="/home">
           <TodoButton
             value={"Get Started"}
-            className={"get__started__button"}
+            buttonStyle={"get__started__button"}
           />
         </Link>
       </div>

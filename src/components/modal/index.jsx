@@ -2,20 +2,27 @@ import TodoButton from "../button"
 import InputField from "../inputField"
 import propTypes from "prop-types"
 import "../../styles/modal.css"
-import CategoryList from "../categoryList/Index"
 import TextArea from "../textarea"
+import { categoryData } from "../../staticdata/modalCategoryData"
 
 const Modal = (props) => {
-  const { modal, setModal, inputData, onchange, addtodo, editId,handlecategorydata,darkmode } = props
-
-  const modalClose = () => setModal(false)
+  const {
+    modal,
+    modalClose,
+    inputData,
+    onchange,
+    addtodo,
+    editId,
+    handlecategorydata,
+    catedata,
+  } = props
 
   return (
     <>
       {modal && (
         <>
           <div className="modal__overlay" onClick={modalClose}></div>
-          <div  className="modal">
+          <div className="modal">
             <div className="modal__button">
               <TodoButton
                 value={"Cancel"}
@@ -41,6 +48,7 @@ const Modal = (props) => {
                 onchange={onchange}
                 autofocus={true}
                 autocomplete={"false"}
+                maxlength={"30"}
               />
               <label htmlFor="description">Description</label>
               <TextArea
@@ -53,7 +61,30 @@ const Modal = (props) => {
                 value={inputData.description}
               />
               <h3>Tags</h3>
-              <CategoryList className={"modal__list"} handlecategorydata={handlecategorydata} />
+              <div className="modal__list__category">
+                  {categoryData.map((ele) => {
+                    return (
+                      <div key={ele.id} className="modal__check__category">
+                        <InputField
+                          type={ele.type}
+                          value={ele.value}
+                          id={ele.id}
+                          checked={
+                            catedata?.includes(ele.value)
+                          }
+                          className={"modal__list"}
+                        />
+                        <label
+                          htmlFor={ele.value}
+                          className="modal__label"
+                          onClick={handlecategorydata}
+                        >
+                          {ele.value}
+                        </label>
+                      </div>
+                    )
+                  })}
+              </div>
             </div>
             {/* </form> */}
           </div>
